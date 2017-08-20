@@ -11,4 +11,4 @@ defmodule Euler_03 do
 
 end
 
-IO.inspect lst_div(600851475143,2,1,[])
+IO.inspect Euler_03.lst_div(600851475143,2,1,[])

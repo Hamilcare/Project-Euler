@@ -22,10 +22,19 @@ defmodule Euler_07 do
 	true -> list_prime(goal, lst, current_number+1)
   end
  end
+ 
+ def list_prime_bis(goal,current_number,index) do
+  cond do
+	index == goal -> (current_number-1)
+	prime?(current_number,:math.floor(:math.sqrt(current_number)),2) -> list_prime_bis(goal, current_number+1,index+1)
+	true -> list_prime_bis(goal,current_number+1,index)
+  end
+ end
 
 
 end
 
 alias :math, as: Math
 #IO.puts Euler_07.prime?(109,Math.floor(Math.sqrt(109)),2)
-IO.inspect Enum.max(Euler_07.list_prime(10001,[],1))
+#IO.inspect Enum.max(Euler_07.list_prime(10001,[],1))
+IO.inspect Euler_07.list_prime_bis(10001,1,0)#~1.5s
